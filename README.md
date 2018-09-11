@@ -33,3 +33,15 @@
 - belongs_to :group
 - belongs_to :user
 
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string||
+|group_id|integer|null: false|
+|user_id|integer|null: false|
+
+### Association
+- belongs_to :group
+- belongs_to :user
