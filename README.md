@@ -10,3 +10,15 @@
 - has_many :groups, :through => :members
 - has_many :messages
 - has_many :members
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+
+### Association
+- has_many :users, :through => :members
+- has_many :messages
+- has_many :members
+
