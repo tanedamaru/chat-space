@@ -11,70 +11,7 @@
     %link{:rel => "stylesheet", :media => "all", :href => "/assets/application-e66896919920db9cb5b5d601a817ab1099691bfddbbd355c65b549b11d7b1958.css"}
     %script{:src => "/assets/application-11431a2aeef6ab6765ca93b518c6f8650fcffef3a41e7f77cc09f002e32bfd88.js"}
   %body
-    .notification
-    .wrapper
-      .side-bar
-        .header
-          %h3.header__name
-            Tanedamaru
-          %ul.header__lists
-            %li.list
-              %a{:href => "/groups/new"}
-            %li.list
-              %a{:href => "/users/8902/edit"}
-        .groups
-          .group
-            %a{:href => "/groups/21002/messages"}
-              .group__name
-                わちゃわちゃ
-              .group__message
-                メッセージ
-          .group
-            %a{:href => "/groups/21252/messages"}
-              .group__name
-                NEW WORLD
-              .group__message
-                めっせーじ
-      .chat
-        .header
-          .left-header
-            .left-header__title
-              NEW WORLD
-            %ul.left-header__members
-              Member:
-              %li.member
-                Tanedamaru
-          .right-header
-            %a.right-header__button{:href => "/groups/21252/edit"}
-              Edit
-        .messages.js-messages
-          .message
-            .upper-message
-              .upper-message__user-name
-                Tanedamaru
-              .upper-message__date
-                2018/09/11 07:21
-            .lower-message
-              %p.lower-message__content
-                HELLO,NEW WORLD
-          .message
-            .upper-message
-              .upper-message__user-name
-                Tanedamaru
-              .upper-message__date
-                2018/09/11 07:23
-            .lower-message
-              %p.lower-message__content
-                Title of this space is cool!
-        .form
-          %form.js-form#new_message
-            %input
-            %input.form__message.js-content
-            .form__mask
-              %label.form__mask__image
-                %i
-                %input
-            %input.form__submit
 
-    = render partial: 'layouts/flash'
+
+    / = render partial: 'layouts/flash'
     = yield
