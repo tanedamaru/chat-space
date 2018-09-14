@@ -1,0 +1,58 @@
+.notification{}
+
+
+.wrapper{
+  height: 100%;
+
+.side-bar{
+  float: left;
+  width: 300px;
+  height: 100%;
+  .header{
+    height: 100px;
+    padding: 0, 20px, 0, 20px;
+    background-color: $left_top-background;
+    .header__name{
+      color: $top_user-name;
+      font-size: $user-name-textsize;
+    }
+    .header__lists{
+      .list{
+      }
+    }
+  }
+
+  .groups{
+    background-color: $left_background;
+    height: calc(100% - 100px);
+    .group{
+      padding-top: 20px;
+      padding-bottom: 40px;
+      .group__name{
+        font-size: $left_space-name-textsize;
+        color: $left_space-name;
+      }
+
+      .group__message{
+        font-size: $left_space-textsize;
+        color: $left_space-text-color;
+      }
+    }
+  }
+}
+
+
+
+.chat{
+  .header{
+  }
+
+  .messages{
+  }
+
+  .form{
+  }
+}
+
+
+}
