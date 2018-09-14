@@ -1,4 +1,9 @@
-.notification{}
+.notification{
+  background-color: $banner;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
 
 
 .wrapper{
@@ -13,9 +18,12 @@
     background-color: $left_top-background;
     padding-right: 20px;
     padding-left:  20px;
+    display: flex;
+    align-items: center;
     .header__name{
       color: $top_user-name;
       font-size: $user-name-textsize;
+      font-weight: bold;
     }
     .header__lists{
       .list{
@@ -47,7 +55,30 @@
 
 
 .chat{
+  width: 100%;
   .header{
+    height: 100px;
+    padding-right: 40px;
+    padding-left:  40px;
+    display: flex;
+    align-items: center;
+    .left-header{
+      .left-header__title{
+        font-size: $top_space-name-textsize;
+        color: $top_space-name;
+      }
+      .left-header__members{
+        font-size: $space-member-textsize;
+        color: $space-member;
+        .member{
+
+        }
+      }
+    }
+    .right-header{
+      clear: auto;
+      float: right;
+    }
   }
 
   .messages{
