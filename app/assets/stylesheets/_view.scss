@@ -10,8 +10,9 @@
   height: 100%;
   .header{
     height: 100px;
-    padding: 0, 20px, 0, 20px;
     background-color: $left_top-background;
+    padding-right: 20px;
+    padding-left:  20px;
     .header__name{
       color: $top_user-name;
       font-size: $user-name-textsize;
@@ -25,6 +26,8 @@
   .groups{
     background-color: $left_background;
     height: calc(100% - 100px);
+    padding-right: 20px;
+    padding-left:  20px;
     .group{
       padding-top: 20px;
       padding-bottom: 40px;
