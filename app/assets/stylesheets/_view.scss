@@ -3,6 +3,7 @@
   width: 100%;
   text-align: center;
   color: white;
+  z-index: 2;
 }
 
 
@@ -55,36 +56,79 @@
 
 
 .chat{
-  width: 100%;
+  width: calc(100vw - 300px);
+  float: right;
+
   .header{
     height: 100px;
     padding-right: 40px;
     padding-left:  40px;
-    display: flex;
-    align-items: center;
+    // border: solid, 2px, $border-color;
     .left-header{
+      float: left;
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
       .left-header__title{
         font-size: $top_space-name-textsize;
         color: $top_space-name;
+        clear: both;
       }
+
       .left-header__members{
         font-size: $space-member-textsize;
         color: $space-member;
-        .member{
-
-        }
       }
     }
     .right-header{
-      clear: auto;
+      margin-top: 28px;
+      height: 40px;
+      padding-right: 20px;
+      padding-left:  20px;
+      padding-top: 10px;
       float: right;
     }
   }
 
   .messages{
+    background-color: $chat-background;
+    padding-top: 46px;
+    min-height: calc(100vh - (100px + 110px));
+    padding-right: 40px;
+    padding-left:  40px;
+    .message{
+      .upper-message{
+        .upper-message__user-name{
+          font-size: $chat-user-textsize;
+          color: $chat-user;
+          padding-right: 10px;
+          float: left;
+        }
+        .upper-message__date{
+          font-size: $chat-timestamp-textsize;
+          color: $chat-timestamp;
+          padding-top: 4px;
+        }
+      }
+      .lower-message{
+        .lower-message__content{
+          clear: both;
+          font-size: $chat-text-textsize;
+          color: $chat-text;
+          padding-top:10px;
+          padding-bottom:40px;
+        }
+      }
+    }
   }
 
   .form{
+    padding-right: 40px;
+    padding-left:  40px;
+
+    .js-form{
+
+    }
   }
 }
 
