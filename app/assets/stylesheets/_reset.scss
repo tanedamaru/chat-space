@@ -11,6 +11,7 @@
 html{
     color:#000;
     background:#FFF;
+    height: 100%;
 }
 /*
     TODO remove settings on BODY since we can't namespace it.
@@ -54,6 +55,9 @@ table {
 fieldset,
 img {
     border:0;
+}
+body{
+    height: 100%;
 }
 /*
     TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...

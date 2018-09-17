@@ -1,0 +1,74 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "sZnnEJCiCGmLI/mtEFno9zbElDlXXCTQSmOntdM6WxozpOWQa2cStnVk75PTRZCJQIpcavnotHV39TZE4Sjnjg==", :name => "csrf-token"}/
+    %link{"data-turbolinks-track" => "reload", :href => "/assets/application-e66896919920db9cb5b5d601a817ab1099691bfddbbd355c65b549b11d7b1958.css", :media => "all", :rel => "stylesheet"}/
+    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-11431a2aeef6ab6765ca93b518c6f8650fcffef3a41e7f77cc09f002e32bfd88.js"}
+  %body
+    .notification
+      / チャットプループが更新されました
+    .wrapper
+      .side-bar
+        .header
+          %h3.header__name
+            Tanedamaru
+          %ul.header__lists
+            %li.list
+              %a{:href => "/groups/new"}
+                %i.fas.fa-edit
+            %li.list
+              %a{:href => "/users/8902/edit"}
+                %i.fa.fa-cog.icon
+        .groups
+          .group
+            .group__name
+              わちゃわちゃ
+            .group__message
+              can't sent two pictures
+          .group
+            .group__name
+              NEW WORLD
+            .group__message
+              Title of this space is cool!
+      .chat
+        .header
+          .left-header
+            .left-header__title
+              NEW WORLD
+          %a.right-header__button{:href => "/groups/21252/edit"} Edit
+          .left-header__members
+            Member：
+            %i
+              Tanedamaru
+        .messages.js-messages
+          .message
+            .upper-message
+              .upper-message__user-name
+                Tanedamaru
+              .upper-message__date
+                2018/09/11 07:21
+            .lower-message
+              %p.lower-message__content
+                HELLO,NEW WORLD
+          .message
+            .upper-message
+              .upper-message__user-name
+                Tanedamaru
+              .upper-message__date
+                2018/09/11 07:23
+            .lower-message
+              %p.lower-message__content
+                Title of this space is cool!
+      .chat__footer
+        %form#new_message.chat__footer-form{"accept-charset" => "UTF-8", :action => "/groups/21252/messages", :enctype => "multipart/form-data", :method => "post"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "EcHBVLgIuys//ZaLenw5uTYcI3CtOR7sdmWJs99MY1hgdijXZYRggdJM0gw1zzmAjqxTfV7l+9WJE9mc68epVQ=="}/
+          .chat__footer__body
+            %input#message_content.form__message.js-content{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+            %label.form__mask__image{:for => "message_image"}
+              %i.fas.fa-image
+              %input#message_image.hidden.js-file{:name => "message[image]", :type => "file"}/
+          %input.form__submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
