@@ -56,5 +56,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 #font-awesome
 gem 'font-awesome-rails'
-# devise for-function of users
+# devise
 gem 'devise'
