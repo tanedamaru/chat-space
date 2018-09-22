@@ -20,7 +20,7 @@
               %a{:href => "/groups/new"}
                 %i.fas.fa-edit
             %li.list
-              %a{:href => "/users/8902/edit"}
+              %a{:href => "/users/current_user/edit"}
                 %i.fa.fa-cog.icon
         .groups
           .group
@@ -38,7 +38,7 @@
           .left-header
             .left-header__title
               NEW WORLD
-          %a.right-header__button{:href => "/groups/21252/edit"} Edit
+          %a.right-header__button{href: "/groups/#{@group.id}/edit" } Edit
           .left-header__members
             Member：
             %i
@@ -63,7 +63,7 @@
               %p.lower-message__content
                 Title of this space is cool!
       .chat__footer
-        %form#new_message.chat__footer-form{"accept-charset" => "UTF-8", :action => "/groups/21252/messages", :enctype => "multipart/form-data", :method => "post"}
+        %form#new_message.chat__footer-form{"accept-charset" => "UTF-8", :action => "/groups/group.id/messages", :enctype => "multipart/form-data", :method => "post"}
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/
           %input{:name => "authenticity_token", :type => "hidden", :value => "EcHBVLgIuys//ZaLenw5uTYcI3CtOR7sdmWJs99MY1hgdijXZYRggdJM0gw1zzmAjqxTfV7l+9WJE9mc68epVQ=="}/
           .chat__footer__body
