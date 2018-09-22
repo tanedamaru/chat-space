@@ -140,39 +140,36 @@
   height: 90px;
   background-color: $form-backcolor;
 
-  .chat__footer-form{
-
-    .chat__footer__body{
-
-      .form__message{
-        margin: 20px 0;
-        height:50px;
-        padding:0 10px;
-        position:absolute;
-        right: 155px;
-        top:0;
-        width: calc( 100% - 220px );
-        font-size: $text-box-textsize;
-        color: $text-box-color;
-        border: none;
-      }
-      .js-content{}
-      #message_content{}
-
-      .form__mask__image{
-        height: 50px;
-        width: 40px;
-        margin: 32px 130px 20px 0;
-        position: absolute;
-        top: 0;
-        right: 25px;
-        display: inline;
-      }
-      .hidden.js-file{
-        display: none;
-      }
-      #message_image{}
+  .form__message{
+    margin: 20px 0;
+    height:50px;
+    padding:0 10px;
+    position:absolute;
+    right: 155px;
+    top:0;
+    width: calc( 100% - 220px );
+    font-size: $text-box-textsize;
+    color: $text-box-color;
+    border: none;
     }
+    .js-content{}
+    #message_content{}
+
+    .form__mask__image{
+    height: 50px;
+    width: 40px;
+    margin: 32px 130px 20px 0;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    display: inline;
+    }
+    .hidden{
+    display: none;
+    }
+    .js-file{}
+    #message_image{}
+
 
     .form__submit{
       background-color: $send_button;
@@ -186,9 +183,9 @@
       color:#fff;
       border:none;
     }
-  }
+}
 
 
 }
 
-}
+

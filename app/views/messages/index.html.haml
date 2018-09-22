@@ -63,12 +63,12 @@
               %p.lower-message__content
                 Title of this space is cool!
       .chat__footer
-        %form#new_message.chat__footer-form{"accept-charset" => "UTF-8", :action => "/groups/group.id/messages", :enctype => "multipart/form-data", :method => "post"}
-          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-          %input{:name => "authenticity_token", :type => "hidden", :value => "EcHBVLgIuys//ZaLenw5uTYcI3CtOR7sdmWJs99MY1hgdijXZYRggdJM0gw1zzmAjqxTfV7l+9WJE9mc68epVQ=="}/
-          .chat__footer__body
-            %input#message_content.form__message.js-content{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-            %label.form__mask__image{:for => "message_image"}
-              %i.fas.fa-image
-              %input#message_image.hidden.js-file{:name => "message[image]", :type => "file"}/
-          %input.form__submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        .form#new_message.chat__footer-form
+          = form_for [@group, @message] do |f|
+            =f.text_field :content,id: 'message_content', class: 'form__message js-content', placeholder: 'type a message'
+            .form__mask
+              = f.label :image, class: 'form__mask__image', for: "message_image" do
+                =fa_icon 'picture-o', class: 'fas fa-image icon'
+                =f.file_field :image,id: 'message_image', class: 'hidden js-file'
+            = f.submit 'Send', class: 'form__submit'
+
