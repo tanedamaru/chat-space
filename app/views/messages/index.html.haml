@@ -11,57 +11,20 @@
     .notification
       / チャットプループが更新されました
     .wrapper
-      .side-bar
-        .header
-          %h3.header__name
-            Tanedamaru
-          %ul.header__lists
-            %li.list
-              %a{:href => "/groups/new"}
-                %i.fas.fa-edit
-            %li.list
-              %a{:href => "/users/current_user/edit"}
-                %i.fa.fa-cog.icon
-        .groups
-          .group
-            .group__name
-              わちゃわちゃ
-            .group__message
-              can't sent two pictures
-          .group
-            .group__name
-              NEW WORLD
-            .group__message
-              Title of this space is cool!
+      = render 'shared/side_bar'
       .chat
         .header
           .left-header
             .left-header__title
-              NEW WORLD
+              = @group.name
           %a.right-header__button{href: "/groups/#{@group.id}/edit" } Edit
           .left-header__members
             Member：
             %i
               Tanedamaru
         .messages.js-messages
-          .message
-            .upper-message
-              .upper-message__user-name
-                Tanedamaru
-              .upper-message__date
-                2018/09/11 07:21
-            .lower-message
-              %p.lower-message__content
-                HELLO,NEW WORLD
-          .message
-            .upper-message
-              .upper-message__user-name
-                Tanedamaru
-              .upper-message__date
-                2018/09/11 07:23
-            .lower-message
-              %p.lower-message__content
-                Title of this space is cool!
+          = render @messages
+
       .chat__footer
         .form#new_message.chat__footer-form
           = form_for [@group, @message] do |f|

@@ -76,6 +76,7 @@
         font-size: $top_space-name-textsize;
         color: $top_space-name;
         clear: both;
+        margin: 0;
       }
     }
     .left-header__members{
@@ -103,9 +104,10 @@
   .messages{
     background-color: $chat-background;
     padding-top: 46px;
-    min-height: calc(100vh - (100px + 110px));
+    height: calc(100vh - (100px + 90px));
     padding-right: 40px;
     padding-left:  40px;
+    overflow: scroll;
     .message{
       .upper-message{
         .upper-message__user-name{
@@ -136,6 +138,7 @@
 .chat__footer{
   float: right;
   width: calc(100vw - 300px);
+  height: auto;
   position:relative;
   height: 90px;
   background-color: $form-backcolor;
