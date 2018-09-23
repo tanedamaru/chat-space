@@ -76,6 +76,7 @@
         font-size: $top_space-name-textsize;
         color: $top_space-name;
         clear: both;
+        margin: 0;
       }
     }
     .left-header__members{
@@ -103,9 +104,10 @@
   .messages{
     background-color: $chat-background;
     padding-top: 46px;
-    min-height: calc(100vh - (100px + 110px));
+    height: calc(100vh - (100px + 90px));
     padding-right: 40px;
     padding-left:  40px;
+    overflow: scroll;
     .message{
       .upper-message{
         .upper-message__user-name{
@@ -136,43 +138,41 @@
 .chat__footer{
   float: right;
   width: calc(100vw - 300px);
+  height: auto;
   position:relative;
   height: 90px;
   background-color: $form-backcolor;
 
-  .chat__footer-form{
-
-    .chat__footer__body{
-
-      .form__message{
-        margin: 20px 0;
-        height:50px;
-        padding:0 10px;
-        position:absolute;
-        right: 155px;
-        top:0;
-        width: calc( 100% - 220px );
-        font-size: $text-box-textsize;
-        color: $text-box-color;
-        border: none;
-      }
-      .js-content{}
-      #message_content{}
-
-      .form__mask__image{
-        height: 50px;
-        width: 40px;
-        margin: 32px 130px 20px 0;
-        position: absolute;
-        top: 0;
-        right: 25px;
-        display: inline;
-      }
-      .hidden.js-file{
-        display: none;
-      }
-      #message_image{}
+  .form__message{
+    margin: 20px 0;
+    height:50px;
+    padding:0 10px;
+    position:absolute;
+    right: 155px;
+    top:0;
+    width: calc( 100% - 220px );
+    font-size: $text-box-textsize;
+    color: $text-box-color;
+    border: none;
     }
+    .js-content{}
+    #message_content{}
+
+    .form__mask__image{
+    height: 50px;
+    width: 40px;
+    margin: 32px 130px 20px 0;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    display: inline;
+    }
+    .hidden{
+    display: none;
+    }
+    .js-file{}
+    #message_image{}
+
 
     .form__submit{
       background-color: $send_button;
@@ -186,9 +186,9 @@
       color:#fff;
       border:none;
     }
-  }
+}
 
 
 }
 
-}
+
