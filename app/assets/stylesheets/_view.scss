@@ -14,6 +14,7 @@
   float: left;
   width: 300px;
   height: 100%;
+  // overflow: scroll;
   .header{
     height: 100px;
     background-color: $left_top-background;
@@ -143,6 +144,9 @@
   height: 90px;
   background-color: $form-backcolor;
 
+  #new_message{
+    height: 90px;
+  }
   .form__message{
     margin: 20px 0;
     height:50px;
@@ -174,7 +178,7 @@
     #message_image{}
 
 
-    .form__submit{
+    #form__button{
       background-color: $send_button;
       width:100px;
       height:50px;

@@ -1,37 +1,28 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title ChatSpace
-    %meta{:content => "authenticity_token", :name => "csrf-param"}/
-    %meta{:content => "sZnnEJCiCGmLI/mtEFno9zbElDlXXCTQSmOntdM6WxozpOWQa2cStnVk75PTRZCJQIpcavnotHV39TZE4Sjnjg==", :name => "csrf-token"}/
-    %link{"data-turbolinks-track" => "reload", :href => "/assets/application-e66896919920db9cb5b5d601a817ab1099691bfddbbd355c65b549b11d7b1958.css", :media => "all", :rel => "stylesheet"}/
-    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-11431a2aeef6ab6765ca93b518c6f8650fcffef3a41e7f77cc09f002e32bfd88.js"}
-  %body
-    .notification
-      / チャットプループが更新されました
-    .wrapper
-      = render 'shared/side_bar'
-      .chat
-        .header
-          .left-header
-            .left-header__title
-              = @group.name
-          %a.right-header__button{href: "/groups/#{@group.id}/edit" } Edit
-          .left-header__members
-            Member：
-            %i
-              Tanedamaru
-        .messages.js-messages
-          = render @messages
 
-      .chat__footer
-        .form#new_message.chat__footer-form
-          = form_for [@group, @message] do |f|
-            =f.text_field :content,id: 'message_content', class: 'form__message js-content', placeholder: 'type a message'
-            .form__mask
-              = f.label :image, class: 'form__mask__image', for: "message_image" do
-                =fa_icon 'picture-o', class: 'fas fa-image icon'
-                =f.file_field :image,id: 'message_image', class: 'hidden js-file'
-            = f.submit 'Send', class: 'form__submit'
+.notification
+  / チャットプループが更新されました
+.wrapper
+  = render 'shared/side_bar'
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          = @group.name
+      %a.right-header__button{href: "/groups/#{@group.id}/edit" } Edit
+      .left-header__members
+        Member：
+        %i
+          Tanedamaru
+    .messages.js-messages
+      = render @messages
+
+  .chat__footer
+    .form.chat__footer-form
+      = form_for [@group, @message] do |f|
+        =f.text_field :content,id: 'message_content', class: 'form__message js-content', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image', for: "message_image" do
+            =fa_icon 'picture-o', class: 'fas fa-image icon'
+            =f.file_field :image,id: 'message_image', class: 'hidden js-file'
+        = f.submit 'Send', id: 'form__button'
 
