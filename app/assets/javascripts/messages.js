@@ -1,56 +1,39 @@
 function buildHTML(message){
+
+      var html = `<div class="message">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${message.user_name}
+                      </div>
+                      <div class="upper-message__date">
+                        ${message.time}
+                      </div>
+                    </div>
+                    <div class="lower-message new-send">
+                 `
     if (message.image.url && message.text) {
-      var html = `<div class="message">
-        <div class="upper-message">
-          <div class="upper-message__user-name">
-            ${message.user_name}
-          </div>
-        <div class="upper-message__date">
-          ${message.time}
-        </div>
-        </div>
-        <div class="lower-message">
-          <p class="lower-message__content">
-            ${message.text}
-          </p>
-          <img class="lower-message__image" src="${message.image.url}">
-        </div>
-        </div>
-        `
-        return html;
+      html +=  `    <p class="lower-message__content">
+                          ${message.text}
+                        </p>
+                        <img class="lower-message__image" src="${message.image.url}">
+                      </div>
+                    </div>
+                   `
+      return html;
     } else if ( message.text ){
-      var html = `<div class="message">
-        <div class="upper-message">
-          <div class="upper-message__user-name">
-            ${message.user_name}
-          </div>
-        <div class="upper-message__date">
-          ${message.time}
-        </div>
-        </div>
-        <div class="lower-message">
-        <p class="lower-message__content">
-          ${message.text}
-        </p>
-        </div>
-        </div>`
-        return html;
+      html += `    <p class="lower-message__content">
+                          ${message.text}
+                        </p>
+                      </div>
+                    </div>
+                   `
+      return html;
     } else if ( message.image.url ){
-      var html = `<div class="message">
-        <div class="upper-message">
-          <div class="upper-message__user-name">
-            ${message.user_name}
-          </div>
-        <div class="upper-message__date">
-          ${message.time}
-        </div>
-        </div>
-        <div class="lower-message">
-          <img class="lower-message__image" src="${message.image.url}">
-        </div>
-        </div>
-        `
-        return html;
+      html += `    <img class="lower-message__image" src="${message.image.url}">
+                      </div>
+                    </div>
+                   `
+      return html;
     }
 }
 
