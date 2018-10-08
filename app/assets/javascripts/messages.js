@@ -9,30 +9,26 @@ function buildHTML(message){
                         ${message.time}
                       </div>
                     </div>
-                    <div class="lower-message new-send">
-                 `
+                    <div class="lower-message new-send">`
     if (message.image.url && message.text) {
-      html +=  `    <p class="lower-message__content">
-                          ${message.text}
-                        </p>
-                        <img class="lower-message__image" src="${message.image.url}">
-                      </div>
-                    </div>
-                   `
+      html += `<p class="lower-message__content">
+                ${message.text}
+               </p>
+               <img class="lower-message__image" src="${message.image.url}">
+             </div>
+           </div>`
       return html;
     } else if ( message.text ){
-      html += `    <p class="lower-message__content">
-                          ${message.text}
-                        </p>
-                      </div>
-                    </div>
-                   `
+      html += `<p class="lower-message__content">
+                 ${message.text}
+               </p>
+             </div>
+           </div>`
       return html;
     } else if ( message.image.url ){
-      html += `    <img class="lower-message__image" src="${message.image.url}">
-                      </div>
-                    </div>
-                   `
+      html += `<img class="lower-message__image" src="${message.image.url}">
+             </div>
+           </div>`
       return html;
     }
 }

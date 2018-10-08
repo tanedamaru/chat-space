@@ -14,7 +14,6 @@
   float: left;
   width: 300px;
   height: 100%;
-  // overflow: scroll;
   .header{
     height: 100px;
     background-color: $left_top-background;
@@ -41,6 +40,7 @@
     height: calc(100% - 100px);
     padding-right: 20px;
     padding-left:  20px;
+    overflow: scroll;
     .group{
       padding-top: 20px;
       padding-bottom: 40px;
@@ -67,7 +67,6 @@
     height: 100px;
     padding-right: 40px;
     padding-left:  40px;
-    // border: solid, 2px, $border-color;
     .left-header{
       float: left;
       margin-top: 35px;
