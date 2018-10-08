@@ -40,6 +40,7 @@
     height: calc(100% - 100px);
     padding-right: 20px;
     padding-left:  20px;
+    overflow: scroll;
     .group{
       padding-top: 20px;
       padding-bottom: 40px;
@@ -66,7 +67,6 @@
     height: 100px;
     padding-right: 40px;
     padding-left:  40px;
-    // border: solid, 2px, $border-color;
     .left-header{
       float: left;
       margin-top: 35px;
@@ -143,6 +143,9 @@
   height: 90px;
   background-color: $form-backcolor;
 
+  #new_message{
+    height: 90px;
+  }
   .form__message{
     margin: 20px 0;
     height:50px;
@@ -174,7 +177,7 @@
     #message_image{}
 
 
-    .form__submit{
+    #form__button{
       background-color: $send_button;
       width:100px;
       height:50px;
