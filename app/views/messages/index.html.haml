@@ -12,7 +12,7 @@
       .left-header__members
         Member：
         %i
-          - @users.each do |user|
+          - @group.users.each do |user|
             = user.name
     .messages.js-messages
       = render @messages
