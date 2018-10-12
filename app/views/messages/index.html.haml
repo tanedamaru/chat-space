@@ -12,7 +12,8 @@
       .left-header__members
         Member：
         %i
-          Tanedamaru
+          - @group.users.each do |user|
+            = user.name
     .messages.js-messages
       = render @messages
 
