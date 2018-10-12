@@ -11,5 +11,4 @@ Rails.application.routes.draw do
       get 'index'
     end
   end
-
 end

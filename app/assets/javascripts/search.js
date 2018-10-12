@@ -2,8 +2,8 @@ $(function(){
   $('#user-search-field').on('keyup', function(e){
     e.preventDefault();
     var input = $(this).val();
+    $('#user-search-result').find('.chat-group-user').remove();
     if (input !== ""){
-      $('#user-search-result').find('.chat-group-user').remove();
       $.ajax({
         url: '/users',
         type: 'GET',
@@ -25,17 +25,38 @@ $(function(){
       .fail(function(){
         alert('ユーザー検索に失敗しました');
       });
-    }else{
-      $('#user-search-result').find('.chat-group-user').remove();
     };
   });
+
+  $(document).on('click', '.chat-group-user__btn--add', function(){
+    var name = $(this).attr('data-user-name');
+    var id = $(this).attr('data-user-id');
+    var addHtml = addHTML(name, id);
+    $('#chat-group-users').append(addHtml);
+    $(this).parent().remove();
+  });
+
+  $(document).on('click', '.chat-group-user__btn--remove', function(){
+    $(this).parent().remove();
+  });
+
 });
 
 function buildHTML(user){
   var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name"> ${user.user_name}</p>
-                <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="ユーザーのid" data-user-name="ユーザー名">追加</a>
+                <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.user_name}">追加</a>
               </div>
              `
+  return html;
+}
+
+function addHTML(name, id){
+  var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                <input name='group[user_ids][]' type='hidden' value='${id}'>
+                <p class='chat-group-user__name'>${name}</p>
+                <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+              </div>
+              `
   return html;
 }

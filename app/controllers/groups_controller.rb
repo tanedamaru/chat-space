@@ -20,7 +20,8 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @user = User.new()
+    @user = User.new
+    @users = @group.users
   end
 
   def update
