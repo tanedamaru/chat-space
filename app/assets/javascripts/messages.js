@@ -1,5 +1,4 @@
 function makeHTML(message){
-  console.log(message.id);
       var html = `<div class="message" data-message_id="${message.id}">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -70,7 +69,6 @@ $(function(){
       })
       .done(function(data){
         var id = $('.message').last().attr('data-message_id');
-        console.log(id);
         data.forEach(function(message){
           if (message.id > id ){
             var html = makeHTML(message);
@@ -82,7 +80,6 @@ $(function(){
       .fail(function(){
         alert('自動更新に失敗しました');
       });
-    console.log('更新');
     }, 5000);
   };
   });
