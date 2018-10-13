@@ -60,6 +60,7 @@ $(function(){
     });
   });
 
+  $(document).ready(function(){
   if (window.location.href.match(/\/groups\/\d+\/messages/)){
     setInterval(function(){
       $.ajax({
@@ -68,12 +69,13 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data){
-        var id = $('.message').last().data('messageId');
+        var id = $('.message').last().attr('data-message_id');
+        console.log(id);
         data.forEach(function(message){
-          console.log(message.id);
           if (message.id > id ){
             var html = makeHTML(message);
             $('.messages').append(html);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
           };
         });
       })
@@ -83,4 +85,5 @@ $(function(){
     console.log('更新');
     }, 5000);
   };
+  });
 });
