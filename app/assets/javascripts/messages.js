@@ -1,6 +1,6 @@
 function makeHTML(message){
-
-      var html = `<div class="message">
+  console.log(message.id);
+      var html = `<div class="message" data-message_id="${message.id}">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
                         ${message.user_name}
@@ -60,14 +60,27 @@ $(function(){
     });
   });
 
-  setInterval(function(){
-    $.ajax({
-      url: href,
-      type: 'GET',
-    })
-    .done(function(data){
-
-    });
-  console.log('更新');
-  }, 5000);
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(function(){
+      $.ajax({
+        url: href,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(data){
+        var id = $('.message').last().data('messageId');
+        data.forEach(function(message){
+          console.log(message.id);
+          if (message.id > id ){
+            var html = makeHTML(message);
+            $('.messages').append(html);
+          };
+        });
+      })
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      });
+    console.log('更新');
+    }, 5000);
+  };
 });

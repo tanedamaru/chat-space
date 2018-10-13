@@ -2,9 +2,13 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
+    @current_user = current_user
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    @current_user = current_user
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
