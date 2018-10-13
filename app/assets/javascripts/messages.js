@@ -1,4 +1,4 @@
-function buildHTML(message){
+function makeHTML(message){
 
       var html = `<div class="message">
                     <div class="upper-message">
@@ -34,10 +34,11 @@ function buildHTML(message){
 }
 
 $(function(){
+  var href = location.href;
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var href = location.href;
     $.ajax({
       url: href,
       type: 'POST',
@@ -48,7 +49,7 @@ $(function(){
     })
     .done(function(data){
       $('#form__button').prop("disabled", false);
-      var html = buildHTML(data);
+      var html = makeHTML(data);
       $('.messages').append(html);
       $('.lower-message__content').val('');
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
@@ -58,4 +59,15 @@ $(function(){
       alert('通信に失敗しました');
     });
   });
+
+  setInterval(function(){
+    $.ajax({
+      url: href,
+      type: 'GET',
+    })
+    .done(function(data){
+
+    });
+  console.log('更新');
+  }, 5000);
 });
