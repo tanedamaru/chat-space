@@ -1,6 +1,5 @@
-function buildHTML(message){
-
-      var html = `<div class="message">
+function makeHTML(message){
+      var html = `<div class="message" data-message_id="${message.id}">
                     <div class="upper-message">
                       <div class="upper-message__user-name">
                         ${message.user_name}
@@ -34,10 +33,11 @@ function buildHTML(message){
 }
 
 $(function(){
+  var href = location.href;
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var href = location.href;
     $.ajax({
       url: href,
       type: 'POST',
@@ -48,7 +48,7 @@ $(function(){
     })
     .done(function(data){
       $('#form__button').prop("disabled", false);
-      var html = buildHTML(data);
+      var html = makeHTML(data);
       $('.messages').append(html);
       $('.lower-message__content').val('');
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
@@ -57,5 +57,30 @@ $(function(){
     .fail(function(){
       alert('通信に失敗しました');
     });
+  });
+
+  $(document).ready(function(){
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(function(){
+      $.ajax({
+        url: href,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(data){
+        var id = $('.message').last().attr('data-message_id');
+        data.forEach(function(message){
+          if (message.id > id ){
+            var html = makeHTML(message);
+            $('.messages').append(html);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
+          };
+        });
+      })
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      });
+    }, 5000);
+  };
   });
 });
