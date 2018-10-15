@@ -1,4 +1,4 @@
-$(function(){
+  $(function(){
   $('#user-search-field').on('keyup', function(e){
     e.preventDefault();
     var input = $(this).val();
